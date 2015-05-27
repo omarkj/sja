@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		95052476FF7E8C3FD1D8697A /* Pods_Sja.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D645751BE65443FA5E8845 /* Pods_Sja.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B5090B311B157A0100CBF0F7 /* upload_completed.wav in Resources */ = {isa = PBXBuildFile; fileRef = B5090B301B157A0100CBF0F7 /* upload_completed.wav */; };
 		B50A84C81B14413B00C9E8CE /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = B50A84C21B14413B00C9E8CE /* Config.plist */; };
 		B50A84C91B14413B00C9E8CE /* Either.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50A84C31B14413B00C9E8CE /* Either.swift */; };
 		B50A84CA1B14413B00C9E8CE /* Imgur.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50A84C41B14413B00C9E8CE /* Imgur.swift */; };
@@ -34,6 +35,7 @@
 		0E20995FC1CF930A440A2F73 /* Pods-Sja.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sja.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Sja/Pods-Sja.debug.xcconfig"; sourceTree = "<group>"; };
 		3BB0146D1FFCA1ADC7F4E210 /* Pods-Sja.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sja.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sja/Pods-Sja.release.xcconfig"; sourceTree = "<group>"; };
 		98D645751BE65443FA5E8845 /* Pods_Sja.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sja.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5090B301B157A0100CBF0F7 /* upload_completed.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = upload_completed.wav; sourceTree = "<group>"; };
 		B50A84C21B14413B00C9E8CE /* Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		B50A84C31B14413B00C9E8CE /* Either.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Either.swift; sourceTree = "<group>"; };
 		B50A84C41B14413B00C9E8CE /* Imgur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Imgur.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 			children = (
 				B50A84C21B14413B00C9E8CE /* Config.plist */,
 				B5E8E9F61B1440B900E08B2F /* Info.plist */,
+				B5090B301B157A0100CBF0F7 /* upload_completed.wav */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5090B311B157A0100CBF0F7 /* upload_completed.wav in Resources */,
 				B5E8E9FA1B1440B900E08B2F /* Images.xcassets in Resources */,
 				B50A84C81B14413B00C9E8CE /* Config.plist in Resources */,
 				B50A84D01B14436900C9E8CE /* MainMenu.xib in Resources */,

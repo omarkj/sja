@@ -8,15 +8,20 @@
 
 import Foundation
 
-func lookupPlist(key: String) -> Either<String, String> {
+func lookupPlist(key: String) -> AnyObject? {
     if let path = NSBundle.mainBundle().pathForResource("Config", ofType: "plist") {
         if let dict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject> {
-            if let value = dict[key] as? String {
-                return Either(left: value)
+            switch dict[key] {
+            case let res as String:
+                return res
+            case let res as Bool:
+                return res
+            default:
+                return nil
             }
         }
     }
-    return Either(right: "No such key")
+    return nil
 }
 
 func delay(delay:Double, closure:()->()) {

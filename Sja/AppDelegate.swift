@@ -28,6 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     override func awakeFromNib() {
         setupStatusBar()
         let sjaController = SjaController(app: self)
+        sjaController.start()
         return
     }
     
