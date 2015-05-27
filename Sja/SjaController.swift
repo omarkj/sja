@@ -55,8 +55,9 @@ class SjaController: NSObject {
     
     private func uploadDone(uploadedScreenshot: UploadedScreenshot) {
         appDelegate.IndicateUploadDone()
-        appDelegate.SetPasteboard(uploadedScreenshot.directLink!)
+        appDelegate.SetPasteboard(uploadedScreenshot.directLink)
         maybePlaySound()
+        maybeDeleteOriginal(uploadedScreenshot.screenshot)
     }
     
     private func uploadInProgress(done: Int64, left: Int64) {
@@ -66,6 +67,13 @@ class SjaController: NSObject {
     private func maybePlaySound() {
         if lookupPlist("Sound") as! Bool {
             sound.play()
+        }
+    }
+    
+    private func maybeDeleteOriginal(screenshot: Screenshot) {
+        if lookupPlist("Delete Once Uploaded") as! Bool {
+            let fileManager = NSFileManager()
+            fileManager.removeItemAtPath(screenshot.path, error: nil)
         }
     }
     

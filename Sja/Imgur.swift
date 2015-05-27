@@ -27,7 +27,9 @@ struct Imgur: ScreenshotUploader {
                 if JSON!.valueForKey("success") as! Bool {
                     let link = JSON!.valueForKey("data")!.valueForKey("link") as! String
                     let deletehash = JSON!.valueForKey("data")!.valueForKey("deletehash") as! String
-                    let uploadedScreenshot = UploadedScreenshot(directLink: link, deleteHash: deletehash)
+                    let uploadedScreenshot = UploadedScreenshot(directLink: link,
+                        deleteHash: deletehash,
+                        screenshot: image)
                     done(uploadedScreenshot)
                 }
         }

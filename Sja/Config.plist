@@ -4,6 +4,8 @@
 <dict>
 	<key>Sound</key>
 	<true/>
+	<key>Delete Once Uploaded</key>
+	<true/>
 	<key>Imgur client ID</key>
 	<string>98c7ae6656f3f52</string>
 </dict>

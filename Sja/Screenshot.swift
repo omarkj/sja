@@ -26,8 +26,9 @@ struct Screenshot {
 }
 
 struct UploadedScreenshot {
-    let directLink: String?
-    let deleteHash: String?
+    let directLink: String
+    let deleteHash: String
+    let screenshot: Screenshot
 }
 
 protocol ScreenshotUploader {
