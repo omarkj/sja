@@ -34,7 +34,7 @@ struct Imgur: ScreenshotUploader {
     }
     
     func createQuery(resource: String, method: String) -> URLRequestConvertible {
-        var key = lookupPlist("Imgur client ID").left!
+        var key = lookupPlist("Imgur client ID") as! String
         let headers = ["Authorization": "Client-ID \(key)"]
         let url = NSURL(string: "\(apiBase)/\(resource)")!
         let mutableURLRequest = NSMutableURLRequest(URL: url)

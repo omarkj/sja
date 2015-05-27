@@ -7,14 +7,22 @@
 //
 
 import Foundation
+import AppKit
 
-class SjaController {
+class SjaController: NSObject {
     let notificationCenter = NSNotificationCenter.defaultCenter()
     let metadataQuery = NSMetadataQuery()
     let appDelegate : AppDelegate
+    let sound : NSSound
     
     init(app: AppDelegate) {
         appDelegate = app
+        let path = NSBundle.mainBundle().pathForResource("upload_completed", ofType: "wav")
+        sound = NSSound(contentsOfFile: path!, byReference: true)!
+        super.init()
+    }
+    
+    internal func start() {
         waitForScreenshot()
     }
     
@@ -41,13 +49,24 @@ class SjaController {
     }
     
     private func uploadScreenshot(screenshot: Screenshot) {
-        screenshot.upload(Imgur(), done: { (uploadedScreenshot: UploadedScreenshot) -> Void in
-            self.appDelegate.IndicateUploadDone()
-            self.appDelegate.SetPasteboard(uploadedScreenshot.directLink!)
-        },
-        progress: { (done: Int64, left: Int64) -> Void in
-            var percentage = done / left * 100
-            self.appDelegate.IndicateUpload("\(percentage)")
-        })
+        screenshot.upload(Imgur(), done: uploadDone,
+        progress: uploadInProgress)
     }
+    
+    private func uploadDone(uploadedScreenshot: UploadedScreenshot) {
+        appDelegate.IndicateUploadDone()
+        appDelegate.SetPasteboard(uploadedScreenshot.directLink!)
+        maybePlaySound()
+    }
+    
+    private func uploadInProgress(done: Int64, left: Int64) {
+        appDelegate.IndicateUpload("\(done / left * 100)")
+    }
+    
+    private func maybePlaySound() {
+        if lookupPlist("Sound") as! Bool {
+            sound.play()
+        }
+    }
+    
 }
